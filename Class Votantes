@@ -1,0 +1,37 @@
+public class Votantes {
+    private int id;
+    private String nombre;
+    private boolean yaVoto = false;
+
+    public Votantes(int id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+        this.yaVoto = false;
+    }
+
+    String getNombre() {
+        return nombre;
+    }
+
+    boolean getYaVoto(){
+        return yaVoto;
+    }
+    void marcarComoVotado(){
+        yaVoto = true;
+    }
+    int getId() {
+        return id;
+    }
+
+
+    //metodos no ocupado pero sercirian en para sacar otros tipos de informacion
+    void setId(int id) {
+        this.id = id;
+    }
+    void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    void setYaVoto(boolean yaVoto) {
+        this.yaVoto = yaVoto;
+    }
+}
