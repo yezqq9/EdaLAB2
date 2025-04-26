@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        UrnaElectoral urna = new UrnaElectoral();
+
+        //creacion de los candidatos
+        Candidatos c1 = new Candidatos(1, "Gabriel", "Partido Morado");
+        Candidatos c2 = new Candidatos(2, "Millaray", "Partido Celeste");
+        Candidatos c3 = new Candidatos(3, "Guliano", "Partido Rojo");
+
+        urna.agregarCandidato(c1);
+        urna.agregarCandidato(c2);
+        urna.agregarCandidato(c3);
+
+        //mostrar los candidatos creados autoritariamente
+        System.out.println("***** CANDIDATOS A ELEGIR ******");
+        int size = urna.getListaCandidatos().size();
+        for (int i= 0; i<size; i++){
+            Candidatos candidato = urna.getListaCandidatos().get(i);
+            System.out.printf("| %-15s | %-10s |\n","Candidato "+ (i+1), candidato.getNombre());
+        }
+        System.out.println("+-----------------+------------+");
+
+        //creacion de los votantes
+        Votantes[] votantes = new Votantes[5    ];
+        for (int i = 1; i <= votantes.length; i++) {
+            votantes[i-1] = new Votantes(i,"Votante "+ (i));//creacion de id y nombre de tres votantes
+        }
+        System.out.println();
+
+        //Comienzo de la eleccion
+        for (int i = 0; i < votantes.length; i++) {
+            System.out.println("Votante -> " + votantes[i].getNombre());
+            System.out.print("Ingrese porque Candidato votar (1, 2 o 3): ");
+            int VotoCandidato= sc.nextInt();
+
+            urna.registrarVoto(votantes[i], VotoCandidato);
+        }
+
+        // Mostrar resultados
+        urna.mostrarResultados();
+    }
+}
