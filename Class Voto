@@ -1,0 +1,54 @@
+public class Voto {
+    private int id;//unico para cada voto
+    private int votanteId ; //id del votante para evitar votos duplicados
+    private int candidatoId; //id de candidato seleccionado
+    private String time ;//hora de voto en formato "hh:mm:s"
+
+    Voto(int id, int votanteId, int candidatoId, String time) {
+        this.id = id;
+        this.votanteId = votanteId;
+        this.candidatoId = candidatoId;
+        this.time = time;
+    }
+
+    Voto(int id){//para las personas que votan de nuevo y se pueda registrar en votos reportados
+        this.id = id;
+    }
+
+    int getId() {
+        return id;
+    }
+
+    //metodos no ocupado pero servirian en para sacar otros tipos de informacion
+    int getVotanteId() {
+        return votanteId;
+    }
+    int getCandidatoId(){
+        return candidatoId;
+    }
+    String getTimestamp(){
+        return time;
+    }
+    void setid(int id) {
+        this.id = id;
+    }
+    void setvotanteId(int votanteId){
+        this.votanteId = votanteId;
+    }
+    void setcandidatoId(int candidatoId){
+        this.candidatoId = candidatoId;
+    }
+    void settimestamp(String timestamp){
+        this.time = timestamp;
+    }
+}
+
+/*
+    public String imprimirVotos()
+        return "Voto:" +
+                "id=" + id +
+                ", votanteId=" + votanteId +
+                ", candidatoId=" + candidatoId +
+                ", timestamp='" + timestamp;
+    }
+*/
