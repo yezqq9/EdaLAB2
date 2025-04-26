@@ -1,6 +1,6 @@
-import java.util.Scanner;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.Scanner;
 import java.util.LinkedList;
 import java.util.HashMap;
 import java.util.Map;
@@ -140,9 +140,8 @@ public class UrnaElectoral {
         }
     }
 
-    //Solo muestra los resultados
-    public void obtenerResultados() {//Big O(2N) == O(N)
-        Map<String, Integer> resultados = new HashMap<>(); //Mapa con los candidatos y su numero de votos
+    public Map<String, Integer> obtenerResultados() {//O(N)
+        Map<String, Integer> resultados = new HashMap<>();
 
         //Agregar los candidatos y numeros de voto al mapa
         for (int i = 0; i < listaCandidatos.size(); i++) {
@@ -152,21 +151,23 @@ public class UrnaElectoral {
             resultados.put(nombre, votos);
         }
 
+        return resultados;
+    }
+    public void mostrarResultados() {
         //Mostrar los resultados del mapa
+        Map<String, Integer> resultados = obtenerResultados();
+
         List<Map.Entry<String, Integer>> listaResultados = new ArrayList<>(resultados.entrySet());
         //Lista recibira la llave(Candidatos) con sus valores(n°votos)
-        System.out.println("*** Resultados de la elección ***");        System.out.println("+------------+-------+");
+        System.out.println("*** Resultados de la elección ***");
+        System.out.println("+------------+-------+");
         System.out.printf("| %-10s | %-3s |\n", "Candidato", "Votos");
         System.out.println("+------------+-------+");
         for (int i = listaResultados.size() - 1; i >= 0; i--) {
             Map.Entry<String, Integer> valor = listaResultados.get(i);
             System.out.printf("| %-10s | %-5d |\n", valor.getKey(), valor.getValue());
         }
-
         System.out.println("+------------+-------+");
+
     }
 }
-
-
-
-
