@@ -1,0 +1,41 @@
+import java.util.LinkedList;
+import java.util.Queue;
+public class Candidatos {
+    private int id;
+    private String nombre;
+    private String partido;
+    private Queue<Voto> votosRecibidos = new LinkedList<>();
+
+    Candidatos(int id, String nombre, String partido) {
+        this.id = id;
+        this.nombre = nombre;
+        this.partido = partido;
+    }
+    int getId() {
+        return id;
+    }
+    String getNombre() {
+        return nombre;
+    }
+    public Queue<Voto> getVotosRecibidos() {
+        return votosRecibidos;
+    }
+    void AgregarVoto(Voto x) {//falta
+        votosRecibidos.add(x);
+    }
+
+    //metodos no ocupado pero sercirian en para sacar otros tipos de informacion
+    String getPartido() {
+        return partido;
+    }
+    void setId(int id) {
+        this.id = id;
+    }
+    void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    void setPartido(String partido) {
+        this.partido = partido;
+    }
+}
+
